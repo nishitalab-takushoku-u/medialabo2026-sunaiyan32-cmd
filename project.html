@@ -2,58 +2,77 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>プロジェクト課題</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>プロジェクト課題</h1>
+    <div class="page-shell">
+      <header class="hero hero-compact">
+        <p class="eyebrow">Project Work</p>
+        <h1>プロジェクト課題</h1>
+        <p class="lead">
+          世界の天気を分かりやすく確認できるページを目指して、大連市の気象データを見やすく整理しました。
+        </p>
+        <nav class="quick-links">
+          <a href="index.html">成果ページへ戻る</a>
+          <a href="https://www.jma.go.jp/">気象情報の参考サイト</a>
+        </nav>
+      </header>
 
-    <p>
-      私は「世界の天気」を選びました。ここでは大連市の天気の検索結果を表示します。
-    </p>
+      <main class="content-grid single-column">
+        <section class="card">
+          <h2>検索結果</h2>
+          <p>
+            現在の天気と、気温・湿度などの基本情報を表形式でまとめました。項目名を左、値を右に置くことで、知りたい情報をすぐ探せるようにしています。
+          </p>
+          <table>
+            <tr>
+              <th>項目</th>
+              <th>内容</th>
+            </tr>
+            <tr>
+              <td>都市名</td>
+              <td>大連市</td>
+            </tr>
+            <tr>
+              <td>天気</td>
+              <td>晴れ</td>
+            </tr>
+            <tr>
+              <td>最低気温</td>
+              <td>18℃</td>
+            </tr>
+            <tr>
+              <td>最高気温</td>
+              <td>24℃</td>
+            </tr>
+            <tr>
+              <td>湿度</td>
+              <td>46%</td>
+            </tr>
+          </table>
+        </section>
 
-    <h2>検索結果</h2>
-
-    <section>
-      <h3>大連市</h3>
-      <p>現在の天気の情報を表にまとめました。</p>
-      <table border="1">
-        <tr>
-          <th>項目</th>
-          <th>内容</th>
-        </tr>
-        <tr>
-          <td>都市名</td>
-          <td>大連市</td>
-        </tr>
-        <tr>
-          <td>天気</td>
-          <td>晴れ</td>
-        </tr>
-        <tr>
-          <td>最低気温</td>
-          <td>18</td>
-        </tr>
-        <tr>
-          <td>最高気温</td>
-          <td>24</td>
-        </tr>
-        <tr>
-          <td>湿度</td>
-          <td>46%</td>
-        </tr>
-      </table>
-    </section>
-
-    <section>
-      <h3>詳細データ</h3>
-      <ul>
-        <li>経度: 121.3741</li>
-        <li>緯度: 38.9181</li>
-        <li>風速: 3.4</li>
-        <li>風向: 100</li></li>
-      </ul>
-    </section>
-
-    <p><a href="index.html">成果ページへ戻る</a></p>
+        <section class="card weather-meta">
+          <div>
+            <h2>観測データ</h2>
+            <ul class="data-list">
+              <li><span>経度</span><strong>121.3741</strong></li>
+              <li><span>緯度</span><strong>38.9181</strong></li>
+              <li><span>風速</span><strong>3.4 m/s</strong></li>
+              <li><span>風向</span><strong>100°</strong></li>
+            </ul>
+          </div>
+          <div class="note-box">
+            <h3>工夫した点</h3>
+            <p>
+              情報量が多くなりすぎないように、主要な数値は表とリストに分けて配置しました。
+              背景色と余白を調整し、見出しと本文のメリハリが出るように CSS を設計しています。
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
   </body>
 </html>
