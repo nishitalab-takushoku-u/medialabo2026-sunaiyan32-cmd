@@ -1,7 +1,15 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
 function print(data) {
-
+    console.log('都市名:', data.name);
+    console.log('天気:', data.weather[0].description);
+    console.log('最低気温:', data.main.temp_min);
+    console.log('最高気温:', data.main.temp_max);
+    console.log('湿度:', data.main.humidity);
+    console.log('経度:', data.coord.lon);
+    console.log('緯度:', data.coord.lat);
+    console.log('風速:', data.wind.speed);
+    console.log('風向:', data.wind.deg);
 }
 
 // 課題5-1 の関数 printDom() はここに記述すること
@@ -84,4 +92,3 @@ let data = {
   "name": "北京市",
   "cod": 200
 };
-
