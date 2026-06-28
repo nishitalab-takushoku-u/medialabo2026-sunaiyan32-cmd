@@ -12,7 +12,8 @@
         <p class="eyebrow">Project Work</p>
         <h1>プロジェクト課題</h1>
         <p class="lead">
-          世界の天気を分かりやすく確認できるページを目指して、大連市の気象データを見やすく整理しました。
+          世界の天気を分かりやすく確認できるページを目指して、都市の基本的な気象データを整理して表示するページを作成しました。
+          表とリストを組み合わせ、必要な情報をすぐに見つけられる構成にしています。
         </p>
         <nav class="quick-links">
           <a href="index.html">成果ページへ戻る</a>
@@ -22,9 +23,10 @@
 
       <main class="content-grid single-column">
         <section class="card">
-          <h2>検索結果</h2>
+          <h2>表示している天気データ</h2>
           <p>
-            現在の天気と、気温・湿度などの基本情報を表形式でまとめました。項目名を左、値を右に置くことで、知りたい情報をすぐ探せるようにしています。
+            都市名、天気、最低気温、最高気温、湿度といった基本情報を表にまとめました。
+            項目名と値を整えて並べることで、数値の比較や確認がしやすいようにしています。
           </p>
           <table>
             <tr>
@@ -33,42 +35,42 @@
             </tr>
             <tr>
               <td>都市名</td>
-              <td>大連市</td>
+              <td id="city-name">読み込み中...</td>
             </tr>
             <tr>
               <td>天気</td>
-              <td>晴れ</td>
+              <td id="weather-desc">読み込み中...</td>
             </tr>
             <tr>
               <td>最低気温</td>
-              <td>18℃</td>
+              <td id="temp-min">読み込み中...</td>
             </tr>
             <tr>
               <td>最高気温</td>
-              <td>24℃</td>
+              <td id="temp-max">読み込み中...</td>
             </tr>
             <tr>
               <td>湿度</td>
-              <td>46%</td>
+              <td id="humidity">読み込み中...</td>
             </tr>
           </table>
         </section>
 
         <section class="card weather-meta">
           <div>
-            <h2>観測データ</h2>
+            <h2>位置と風の情報</h2>
             <ul class="data-list">
-              <li><span>経度</span><strong>121.3741</strong></li>
-              <li><span>緯度</span><strong>38.9181</strong></li>
-              <li><span>風速</span><strong>3.4 m/s</strong></li>
-              <li><span>風向</span><strong>100°</strong></li>
+              <li><span>経度</span><strong id="lon">読み込み中...</strong></li>
+              <li><span>緯度</span><strong id="lat">読み込み中...</strong></li>
+              <li><span>風速</span><strong id="wind-speed">読み込み中...</strong></li>
+              <li><span>風向</span><strong id="wind-deg">読み込み中...</strong></li>
             </ul>
           </div>
           <div class="note-box">
             <h3>工夫した点</h3>
             <p>
-              情報量が多くなりすぎないように、主要な数値は表とリストに分けて配置しました。
-              背景色と余白を調整し、見出しと本文のメリハリが出るように CSS を設計しています。
+              情報量が多くても読みにくくならないように、主要な数値は表に、補足情報はリストに分けて配置しました。
+              背景色や余白を整え、視線が自然に流れるようにカード型のレイアウトを採用しています。
             </p>
           </div>
         </section>
