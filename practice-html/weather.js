@@ -1,4 +1,4 @@
-// 課題3-2 のプログラムはこの関数の中に記述すること
+// 課題3-2: 天気データをコンソールに出力する
 function print(data) {
     console.log('都市名: ' + data.name);
     console.log('天気: ' + data.weather[0].description);
@@ -11,24 +11,50 @@ function print(data) {
     console.log('風向: ' + data.wind.deg);
 }
 
-// 課題5-1 の関数 printDom() はここに記述すること
+// 課題5-1: 天気データをページに表示する
 function printDom(data) {
+    let city = document.querySelector('#city-name');
+    if (city === null) {
+        return;
+    }
 
+    city.textContent = data.name;
+    document.querySelector('#weather-desc').textContent = data.weather[0].description;
+    document.querySelector('#temp-min').textContent = data.main.temp_min + '℃';
+    document.querySelector('#temp-max').textContent = data.main.temp_max + '℃';
+    document.querySelector('#humidity').textContent = data.main.humidity + '%';
+    document.querySelector('#lon').textContent = data.coord.lon;
+    document.querySelector('#lat').textContent = data.coord.lat;
+    document.querySelector('#wind-speed').textContent = data.wind.speed + ' m/s';
+    document.querySelector('#wind-deg').textContent = data.wind.deg + '°';
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
-
+let requestButton = document.querySelector('#sendRequest');
+if (requestButton !== null) {
+    requestButton.addEventListener('click', sendRequest);
+}
 
 
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
-
+    let url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/1816670.json';
+    axios.get(url)
+        .then(showResult)
+        .catch(showError)
+        .then(finish);
 }
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
 function showResult(resp) {
+    let data = resp.data;
+    if (typeof data === 'string') {
+        data = JSON.parse(data);
+    }
 
+    print(data);
+    printDom(data);
 }
 
 // 課題6-1: 通信エラーが発生した時の処理
@@ -43,8 +69,6 @@ function finish() {
 
 ////////////////////////////////////////
 // 以下はグルメのデータサンプル
-// 注意: 第5回までは以下を変更しないこと！
-// 注意2: 課題6-1 で以下をすべて削除すること
 let data = {
   "coord": {
     "lon": 116.3972,
@@ -92,3 +116,5 @@ let data = {
   "cod": 200
 };
 
+print(data);
+printDom(data);

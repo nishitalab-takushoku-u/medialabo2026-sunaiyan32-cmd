@@ -16,3 +16,39 @@ let gakka = [
 
 //////////////// ここから下にプログラムを書きたそう!
 
+function changeDom() {
+	let addr = document.querySelector('h2#addr');
+	let dept = document.querySelector('h2#dept');
+
+	if (document.querySelector('p#campus-address') !== null) {
+		return;
+	}
+
+	let p = document.createElement('p');
+	p.id = 'campus-address';
+	p.textContent = campus.address;
+	addr.insertAdjacentElement('afterend', p);
+
+	let roomTitle = document.createElement('h3');
+	roomTitle.textContent = 'D館の教室';
+	p.insertAdjacentElement('afterend', roomTitle);
+
+	let roomList = document.createElement('ul');
+	for (let room of campus.buildingD) {
+		let li = document.createElement('li');
+		li.textContent = room;
+		roomList.insertAdjacentElement('beforeend', li);
+	}
+	roomTitle.insertAdjacentElement('afterend', roomList);
+
+	let gakkaList = document.createElement('ul');
+	for (let department of gakka) {
+		let li = document.createElement('li');
+		li.textContent = department.name + ' (' + department.ename + ')';
+		gakkaList.insertAdjacentElement('beforeend', li);
+	}
+	dept.insertAdjacentElement('afterend', gakkaList);
+}
+
+let b = document.querySelector('button#show');
+b.addEventListener('click', changeDom);

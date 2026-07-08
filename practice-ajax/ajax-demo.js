@@ -6,6 +6,7 @@ b.addEventListener('click', sendRequest);
 function sendRequest() {
 	// URL を設定
 	let url = 'https://www.nishita-lab.org/web-contents/jsons/test.json';
+	document.querySelector('#result').textContent = '通信中です...';
 
 	// 通信開始
 	axios.get(url)
@@ -29,14 +30,20 @@ function showResult(resp) {
 
 	// data.x を出力
 	console.log(data.x);
+
+	let result = document.querySelector('#result');
+	result.textContent = '通信成功: x=' + data.x + ', y=' + data.y;
 }
 
 // 通信エラーが発生した時の処理
 function showError(err) {
 	console.log(err);
+	document.querySelector('#result').textContent = '通信エラーが発生しました．';
 }	
 
 // 通信の最後にいつも実行する処理
 function finish() {
 	console.log('Ajax 通信が終わりました');
+	let result = document.querySelector('#result');
+	result.textContent = result.textContent + ' Ajax 通信が終わりました．';
 }

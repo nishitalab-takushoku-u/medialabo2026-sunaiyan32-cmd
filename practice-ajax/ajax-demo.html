@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Ajax通信のデモ</title>
 	<!--<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
@@ -9,7 +10,8 @@
 
   <body>
     <h1>Ajax通信のデモ</h1>
-	<p>以下のボタンを押すと，サーバに通信します．結果はコンソールに出力します．</p>
+	<p>以下のボタンを押すと，サーバに通信します．結果はコンソールとページに出力します．</p>
 	<button id="sendRequest">通信</button>
+	<p id="result">通信結果はここに表示されます．</p>
   </body>
 </html>
